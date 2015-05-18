@@ -1,6 +1,14 @@
 <h1><%= @message.title %></h1>
 
 <p>
+  <% if @message.created_at.nil? %>
+    <small>(Created before timestamps were in place)</small>
+  <% else %>
+    <small>Created at: <%= @message.created_at %></small>
+  <% end %>
+</p>
+
+<p>
   Author: <%= @message.author %>
 </p>
 
