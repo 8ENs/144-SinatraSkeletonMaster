@@ -19,11 +19,13 @@ get '/messages/:id' do
 end
 
 post '/messages' do
+  # binding.pry
   @message = Message.new(
     title:   params[:title],
-    content: params[:content],
-    author:  params[:author]
+    content: params[:content]
+    # author:  params[:author]
   )
+  author = @message.create_author(name: params[:author])
   if @message.save
     redirect '/messages'
   else

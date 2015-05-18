@@ -1,3 +1,4 @@
 class Message < ActiveRecord::Base
-  validates :title, :content, :author, presence: true
+  validates :title, :content, presence: true
+  belongs_to :author
 end

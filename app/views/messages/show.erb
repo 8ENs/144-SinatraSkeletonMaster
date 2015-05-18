@@ -1,11 +1,20 @@
 <h1><%= @message.title %></h1>
 
 <p>
-  Author: <%= @message.author %>
+  Author: <%= @message.author.name %>
 </p>
 
 <p>
   <%= @message.content  %>
+</p>
+
+<p>
+  Other messages by <%= @message.author.name %>: 
+  <ol>
+  <% Author.where(name: @message.author.name).each do |author_match| %>
+    <li><a href="/messages/<%= Message.where(author_id: author_match.id).first.id %>"><%= Message.where(author_id: author_match.id).first.title %></a></li>
+  <% end %>
+  </ol>
 </p>
 
 <hr/>
