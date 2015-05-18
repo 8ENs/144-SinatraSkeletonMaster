@@ -19,11 +19,9 @@ ActiveRecord::Schema.define(version: 20150518015805) do
   end
 
   create_table "messages", force: true do |t|
-    t.string   "title"
-    t.string   "content"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "author_id"
+    t.string  "title"
+    t.string  "content"
+    t.integer "author_id"
   end
 
   add_index "messages", ["author_id"], name: "index_messages_on_author_id"
